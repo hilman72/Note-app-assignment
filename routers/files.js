@@ -6,6 +6,22 @@ const fs = require("fs");
 //get
 router.get("/", (req, res) => res.json(note));
 
+router.get("/edit/:id", function (req, res) {
+  const realId = req.params.id;
+
+  let EditItem = note.filter((EditItem) => {
+    return EditItem.id == realId;
+  })[0];
+
+  const index = note.indexOf(EditItem);
+
+  let detail = note[index];
+
+  res.render("edit", {
+    detail,
+  });
+});
+
 //post
 router.post("/post", (req, res) => {
   let x = note.length;

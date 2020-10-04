@@ -21,22 +21,6 @@ app.get("/", function (req, res) {
   });
 });
 
-app.get("/edit/:id", function (req, res) {
-  const realId = req.params.id;
-
-  let EditItem = note.filter((EditItem) => {
-    return EditItem.id == realId;
-  })[0];
-
-  const index = note.indexOf(EditItem);
-
-  let detail = note[index];
-
-  res.render("edit", {
-    detail,
-  });
-});
-
 app.listen(8000, function () {
   console.log("fixx you");
 });
